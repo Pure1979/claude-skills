@@ -19,6 +19,22 @@ Kullanıcının bilgisayarında çalışan bir Node.js uygulaması. Bir YouTube 
 konu araştırma → senaryo → seslendirme ve görseller → MP4 → başlık, açıklama, etiket → onay → zamanlanmış yükleme → analitikten öğrenme.
 Panel `http://localhost:3456` adresinde açılır. Her video yayından önce kullanıcı onayı bekler. Otonom mod açık olsa bile kaynak ve medya hakkı kontrolleri atlanmaz.
 
+## Temel kural: ajan arka ofistir, yönetmen değil
+
+Kanalın yaratıcı şablonu bizde kalır. Ajan sadece şablonun üretim ve yayın kısmını tamamlar. Ajanı tek başına uçtan uca çalıştırmak kanalı "seri üretilmiş yapay zekâ videosu" kalıbına düşürür ve YouTube'un şablon kuralına takılma riski doğurur.
+
+| Katman | Kim yapar | Nasıl |
+|---|---|---|
+| Konu, araştırma, ton, içerik sütunları | **Biz** | `projeler/youtube-saat/KONSEPT.md` ve `NIS-ANALIZI.md`. Ajanın konu önerileri sadece fikir havuzudur. |
+| Senaryo | **Biz** | Claude senaryoyu yazar, `humanizer` ile Türkçe kalıplardan arındırır, ajanın sahne metinlerine girer. Ajanın yazdığı taslak sadece iskelet. |
+| Kaynak masası | Ajan | Her iddia kaynağa bağlanır. Kaynaksız iddia çıkarılır. |
+| Seslendirme | Ajan | ElevenLabs / Gemini / OpenAI. Sahne metni değişince sadece o sahnenin sesi yenilenir. |
+| Görseller | **Biz** (HyperFrames) | Özel sahneler ajana sahne sahne yüklenir. Ajanın slayt görseli sadece önemsiz ara sahnelerde kalabilir. |
+| Kurgu, MP4, altyazı | Ajan | Sahne yükledikten sonra yeniden derleme. |
+| Shorts | Ajan | Onaylı uzun videodan 3 dikey taslak. |
+| Yükleme, zamanlama, analitik, yorumlar | Ajan | Her yayın ve onay kullanıcıya sorulur. |
+| Otonom operatör | **Kapalı** | Yaratıcı kararları bize bırakmalı. Açılması kullanıcının açık kararını gerektirir ve bu tablo yeniden değerlendirilir. |
+
 ## Nerede çalışır, Claude ona nasıl ulaşır?
 
 - Uygulama **kullanıcının bilgisayarında** çalışır. Claude'un bulut çalışma alanında çalıştırılmaz (npm erişimi yok, YouTube hesabı kullanıcınındır).
@@ -66,11 +82,16 @@ Panel `http://localhost:3456` adresinde açılır. Her video yayından önce kul
 
 ## Bir video üretme akışı
 
-1. **Konu:** `projeler/youtube-saat/NIS-ANALIZI.md`'deki planlı videolardan biri. Panelde fikir olarak eklenir ve oradan üretilir.
-2. **Senaryo kontrolü:** Ajan senaryoyu yazınca Claude sahne metinlerini okur ve `humanizer` skill'iyle Türkçe kalıplardan arındırır. Düzeltmeler sahne düzenleme ekranından girilir.
+1. **Konu ve brif:** Konu `projeler/youtube-saat/NIS-ANALIZI.md`'deki plandan seçilir. Claude kısa bir brif yazar (konu, sütun, ton, ana iddialar ve kaynakları, istenen süre) ve panelde fikir olarak ekler. Üretim oradan başlatılır.
+2. **Senaryo bizim:** Ajanın ilk taslağı sadece sahne iskeleti olarak kullanılır. Claude bizim senaryomuzu yazar, `humanizer` ile doğallaştırır ve sahne sahne ajanın sahne metinlerine girer. Ardından sadece değişen sahnelerin sesi yenilenir.
 3. **Kaynak masası (Evidence desk):** Her tarih, rakam ve iddia doğrulanmış bir kaynağa bağlanır. Kaynaksız iddia ya düzeltilir ya da senaryodan çıkarılır. Kaynaklar video açıklamasına da eklenir.
-4. **Görsel kontrol:** Slayt gösterisi her videoda aynı görünmeye başlarsa (YouTube'un şablon kuralı riski) sahneler tek tek yenilenir ya da bazı sahneler HyperFrames ile özel üretilir. Dışarıda üretilmiş bir sahnenin "replace" ile içeri alınıp alınamadığı ilk videoda doğrulanacak.
-5. **Medya hakları:** Marka ve basın fotoğrafları izinsiz kullanılmaz. Onay ekranındaki medya hakkı beyanı ancak bu kontrol yapıldıysa işaretlenir.
+4. **Görseller bizim:** Önemli sahneler (giriş, ana anlatı, rakamlar, haritalar, zaman çizelgeleri) HyperFrames ile üretilir ve ajana yüklenir:
+   - Panelde: Scene Repair Studio → sahne → görseli değiştir → dosyayı seç → telif onayını işaretle.
+   - API'de: `PUT /api/content/:productionId/scenes/:sceneId/asset`. Gövde ham dosya (`image/*` ya da `video/*`, en fazla 100 MB, video MP4 uyumlu olmalı). Başlıklar: `x-file-name`, `x-rights-confirmed: true` (sadece haklar gerçekten bizdeyse), `x-synthetic-media: true` (yapay üretimse).
+   - Yüklemeden sonra `POST /api/content/:productionId/scenes/rebuild` ile video yeniden derlenir ve yeniden onaya düşer.
+   - Sahne süresi ile seslendirme süresi uyumlu olmalı. HyperFrames sahnesi, sahnenin ses süresine göre render edilir. (İlk videoda ajanın uzun ya da kısa klibi nasıl kırptığı doğrulanacak.)
+   - Ajanın slayt görseli sadece kısa ara sahnelerde kalabilir. Ardışık iki videoda aynı görsel kalıp kullanılmaz.
+5. **Medya hakları:** Marka ve basın fotoğrafları izinsiz kullanılmaz. Onay ekranındaki ve yüklemedeki telif beyanı ancak bu kontrol yapıldıysa işaretlenir.
 6. **Onay ve zamanlama:** Onay, yayın ve "publish now" geri alınması zor işlemlerdir. Claude bunları **her seferinde kullanıcıya sorup açık "evet" aldıktan sonra** yapar.
 7. **Shorts:** Onaylanan videodan "Shorts Repurposing" ile 3 dikey taslak çıkarılır. Başlıkları `NIS-ANALIZI.md`'deki Shorts kesitlerinden uyarlanır. Her biri ayrıca onaylanır.
 
@@ -89,6 +110,12 @@ Panel `http://localhost:3456` adresinde açılır. Her video yayından önce kul
 | Özel motion grafik sahneleri, kapak görseli tasarımı | HyperFrames |
 | Metin doğallaştırma | humanizer |
 | Rakip ve niş analizi | Yerleşik tarayıcı (gerekirse Apify) |
+
+## Pratik sınırlar
+
+- **Bilgisayar açık olmalı.** Zamanlanmış yüklemeler ajan çalışırken yapılır (15 dakikada bir kontrol). Yayın saatinde bilgisayar kapalıysa yayın kayar.
+- **Haftalık Google girişi.** Google Cloud projesi "Testing" modundayken YouTube girişi 7 günde bir yenilenmeli. Claude haftalık kontrolde bunu hatırlatır.
+- **HyperFrames render'ı** da kullanıcının bilgisayarında yapılır (aynı makinede Node.js zaten kurulu olacak). Render edilen dosyayı panele kullanıcı yükler. Claude'un bulut ortamındaki dosyalar panele doğrudan gönderilemez.
 
 ## YouTube kuralı (16.07.2026)
 

@@ -79,7 +79,8 @@ Bir YouTube kanalını uçtan uca yöneten, kullanıcının bilgisayarında çal
 - **Kurulum şekli:** Skill değil, uygulama. Kod repoya kopyalanmadı. `youtube-otomasyon-ajani` skill'i kurulumu ve bizim kanal ayarlarını anlatıyor. Claude panele yerleşik tarayıcıyla `http://localhost:3456` adresinden ulaşır.
 - **Bağımlılık:** Node.js 18.17+, Google Cloud OAuth (YouTube Data + Analytics API), en az bir metin sağlayıcı anahtarı (Gemini ücretsiz katman olabilir), seslendirme anahtarı.
 - **Güçlü yanı:** onay kapıları (kaynak masası, medya hakkı beyanı, kullanıcı onayı), yükleme ve analitik döngüsü, Shorts çıkarma. Seslendirme seçimi sorununu da çözüyor.
-- **Zayıf yanı:** varsayılan görsel slayt gösterisi. YouTube'un şablon kuralı açısından risk, HyperFrames ile desteklenmeli. Dışarıda üretilen sahnenin içeri alınıp alınamadığı henüz doğrulanmadı.
+- **Zayıf yanı:** varsayılan görsel slayt gösterisi. YouTube'un şablon kuralı açısından risk.
+- **Kullanım kararı (2026-11-05): hibrit, "arka ofis".** Konu, senaryo ve görseller bizde (Humanizer + HyperFrames). Ajan kaynak masası, seslendirme, kurgu, Shorts, yükleme, analitik ve yorumları üstlenir. Otonom operatör kapalı. Dışarıdan sahne yükleme kodda doğrulandı (`PUT /api/content/:productionId/scenes/:sceneId/asset`).
 - **İnceleme:** telemetri varsayılan kapalı, dış bağlantılar sadece seçilen sağlayıcılar ve Google API'leri, panel sadece yerel adreste dinliyor.
 
 ## Kategoriler

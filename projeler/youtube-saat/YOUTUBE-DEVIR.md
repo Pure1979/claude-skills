@@ -1,13 +1,13 @@
 # YouTube Saat Kanalı: Devir Özeti
 
-Son durum: 2026-11-05 17:10. Bu dosya YouTube projesinde kaldığımız yerden devam etmek için hazırlandı. Önceki çalışma "GitHUB Repo" projesinde ve `Pure1979/claude-skills` reposunda yapıldı.
+Son durum: 2026-11-05 18:48. Bu dosya YouTube projesinde kaldığımız yerden devam etmek için hazırlandı. Önceki çalışma "GitHUB Repo" projesinde ve `Pure1979/claude-skills` reposunda yapıldı.
 
 ## Nerede kaldık?
 
 1. ✅ Kanal konsepti
 2. ✅ Niş analizi
 3. ⏭ **Sıradaki: kanal kimliği** (isim, logo, banner, açıklama) ve ilk video konusunun onayı. Önerilen ilk video: Kuvars Krizi.
-4. İlk video: senaryo → Humanizer → seslendirme → görseller ve kurgu → render
+4. İlk video: brif → bizim senaryomuz (Humanizer) → ajanda kaynak masası ve seslendirme → HyperFrames sahneleri ajana yüklenir → ajan derler → onay
 5. Yayın: başlık, açıklama, kapak görseli, Postiz ile zamanlama
 
 ## Genel hedef
@@ -79,7 +79,10 @@ Kullanıcının verdiği diğer referans kanallar (henüz taranmadı): Chisholm 
 - **Video skill'leri** `Pure1979/claude-skills` reposunda: HyperFrames (9 skill: video üretimi, altyazı, stil kopyalama, video yeniden kurma), Humanizer (Türkçe uyarlamalı), ScrollCraft, idea-refine, planning-and-task-breakdown, spec-driven-development. **YouTube projesindeki bir oturumda bu skill'leri kullanmak için o oturuma `Pure1979/claude-skills` reposunu bağlamak gerekiyor.** Humanizer ayrıca hesaba kaydedilebilir (kayıt kartı sunulmuştu).
 - **Render:** HyperFrames CLI henüz test edilemedi, çünkü önceki oturumlarda npm/pip paket depoları kapalıydı. Yedek plan: Chromium + Playwright + ffmpeg ile HTML animasyonları kare kare render etmek. Seslendirme dışarıdan bir servisle yapılacak.
 - **Veri toplama:** YouTube verileri masaüstü uygulamasının tarayıcısıyla çekildi (youtube.com için izin verildi). Apify bağlanmadı; şu an acil değil.
-- **YouTube Automation Agent (2026-11-05'te eklendi):** Kanalı uçtan uca yöneten, kullanıcının bilgisayarında çalışan açık kaynak uygulama ([darkzOGx/youtube-automation-agent](https://github.com/darkzOGx/youtube-automation-agent)). Senaryo, seslendirme, MP4, onay, zamanlanmış yükleme, analitik ve Shorts çıkarmayı yapıyor. Kurulumu ve bizim kanal ayarları `youtube-otomasyon-ajani` skill'inde. Rolü: YouTube'a yükleme, zamanlama, analitik ve yorumlar. Görseller HyperFrames ile desteklenecek, çünkü varsayılan slayt görünümü şablon kuralı açısından risk.
+- **YouTube Automation Agent (2026-11-05'te eklendi):** Kanalı uçtan uca yönetebilen, kullanıcının bilgisayarında çalışan açık kaynak uygulama ([darkzOGx/youtube-automation-agent](https://github.com/darkzOGx/youtube-automation-agent)). Kurulum ve kullanım `youtube-otomasyon-ajani` skill'inde.
+  - **Karar: ajan arka ofistir, yönetmen değil.** Yaratıcı şablon bizde kalır: konu, araştırma, ton, senaryo (Humanizer'dan geçer) ve görseller (HyperFrames). Ajan üstlenir: kaynak masası, seslendirme, kurgu ve MP4, altyazı, Shorts çıkarma, yükleme, zamanlama, analitik, yorumlar. Otonom operatör kapalı.
+  - HyperFrames sahneleri ajana sahne sahne yüklenebiliyor (kodda doğrulandı: sahne başına görsel ya da MP4, en fazla 100 MB, telif onayı zorunlu, sonra yeniden derleme). Gerçek videoda ilk denemede doğrulanacak.
+  - Pratik sınırlar: yayın saatinde bilgisayar açık olmalı. Google Cloud test modunda YouTube girişi 7 günde bir yenilenmeli. HyperFrames render'ı da aynı bilgisayarda yapılacak.
 - **Hesapta açık araçlar:** Buzzfy (Instagram analizi ve paylaşım), Postiz (YouTube dahil 28 kanala zamanlı paylaşım).
 
 ## Açık işler
