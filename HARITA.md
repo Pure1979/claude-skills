@@ -13,6 +13,15 @@ Repoda `.claude/skills/<skill>/` altında durur. Bu repo bir oturuma bağlanınc
 | `idea-refine` | düşünme | A5 | bekliyor | 2026-11-05 |
 | `planning-and-task-breakdown` | düşünme | A5 | bekliyor | 2026-11-05 |
 | `spec-driven-development` | düşünme / geliştirme | A5 | bekliyor | 2026-11-05 |
+| `hyperframes` | video | A1 | bekliyor | 2026-11-05 |
+| `hyperframes-cli` | video | A1 | bekliyor | 2026-11-05 |
+| `hyperframes-registry` | video | A1 | bekliyor | 2026-11-05 |
+| `media-use` | video | A1 | bekliyor | 2026-11-05 |
+| `style-sampling` | video | A1 | bekliyor | 2026-11-05 |
+| `reverse-any-video` | video | A1 | bekliyor | 2026-11-05 |
+| `slideshow` | video | A1 | bekliyor | 2026-11-05 |
+| `figma` | video | A1 | bekliyor | 2026-11-05 |
+| `remotion-to-hyperframes` | video | A1 | bekliyor | 2026-11-05 |
 
 ## Aday kaynaklar (kurulmamış)
 
@@ -20,7 +29,7 @@ Tarama tarihi: 2026-11-05. "Sürüm" sütunu, taradığımız commit'i gösterir
 
 | # | Kaynak | Tür | Lisans | Sürüm | Kategori | Öncelik |
 |---|---|---|---|---|---|---|
-| A1 | [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) | 9 skill + ~450 hazır blok | Apache 2.0 | `7bebcb9` (2026-11-05) | Video | Orta |
+| A1 | [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) | 9 skill + ~450 hazır blok | Apache 2.0 | `7bebcb9` (2026-11-05) | Video | ✅ 9 skill kuruldu, render testi bekliyor |
 | A2 | [apify/apify-mcp-server](https://github.com/apify/apify-mcp-server) | MCP bağlantısı (skill değil) | MIT | `3577a57` (2026-11-05) | Veri / web | Orta |
 | A3 | [nateherkai/scroll-craft](https://github.com/nateherkai/scroll-craft) | 1 skill (çok dosyalı) | MIT | `75d81f7` (2026-09-30) | Web / landing page | Orta |
 | A4 | [blader/humanizer](https://github.com/blader/humanizer) | 1 skill | MIT | `0ef9fe5` (2026-10-28) | İçerik / yazı | ✅ Kuruldu |
@@ -32,7 +41,8 @@ HTML'i videoya dönüştürüyor: tanıtım filmleri, açıklayıcı videolar, d
 - **Ana skill'ler** (`skills/`): `hyperframes` (önce bu okunur), `hyperframes-cli`, `hyperframes-registry` (~450 hazır blok), `media-use` (müzik, ses, görsel, seslendirme), `slideshow`, `figma`, `style-sampling`, `remotion-to-hyperframes`, `reverse-any-video`
 - **Ek skill'ler** (`.claude/skills/`): `captions-overlay`, `changelog-video`, `cut-the-curve`, `motion-doctrine`, `oversized-cursor`, `seam-craft`
 - **Bağımlılık:** HyperFrames CLI (Node/Bun) ve render ortamı. Bazı medya işleri HeyGen hesabı istiyor.
-- **Not:** Repo büyük (~411 MB). Kurulumda sadece `skills/` klasörü alınır.
+- **Not:** Repo büyük (~411 MB). Sadece `skills/` altındaki 9 yayınlanmış skill kuruldu. `.claude/skills/` altındaki 6 ek skill reponun kendi geliştiricileri için, kurulmadı.
+- **Render testi:** 2026-11-05 oturumunda npm deposuna erişim kapalıydı (`registry.npmjs.org` 403), CLI test edilemedi. Bir sonraki adımda ya npm erişimi olan bir oturumda ya da kullanıcının bilgisayarında `npx hyperframes init test && npx hyperframes render` ile denenecek.
 
 ### A2 · Apify MCP
 Web'den veri çekme, arama ve tarayıcı otomasyonu için binlerce hazır "Actor"a tek bağlantıdan erişim sağlıyor (Instagram, Google Maps, e-ticaret, SERP).
