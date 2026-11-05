@@ -9,20 +9,20 @@ Repoda `.claude/skills/<skill>/` altında durur. Bu repo bir oturuma bağlanınc
 
 | Skill | Kategori | Kaynak | Hesapta | Kurulum |
 |---|---|---|---|---|
-| `humanizer` | içerik | A4 · Türkçe uyarlamalı | bekliyor | 2026-11-05 |
-| `idea-refine` | düşünme | A5 | bekliyor | 2026-11-05 |
-| `planning-and-task-breakdown` | düşünme | A5 | bekliyor | 2026-11-05 |
-| `spec-driven-development` | düşünme / geliştirme | A5 | bekliyor | 2026-11-05 |
-| `hyperframes` | video | A1 | bekliyor | 2026-11-05 |
-| `hyperframes-cli` | video | A1 | bekliyor | 2026-11-05 |
-| `hyperframes-registry` | video | A1 | bekliyor | 2026-11-05 |
-| `media-use` | video | A1 | bekliyor | 2026-11-05 |
-| `style-sampling` | video | A1 | bekliyor | 2026-11-05 |
-| `reverse-any-video` | video | A1 | bekliyor | 2026-11-05 |
-| `slideshow` | video | A1 | bekliyor | 2026-11-05 |
-| `figma` | video | A1 | bekliyor | 2026-11-05 |
-| `remotion-to-hyperframes` | video | A1 | bekliyor | 2026-11-05 |
-| `scroll-craft` | web | A3 | bekliyor | 2026-11-05 |
+| `humanizer` | içerik | A4 · Türkçe uyarlamalı | kart sunuldu | 2026-11-05 |
+| `idea-refine` | düşünme | A5 | — | 2026-11-05 |
+| `planning-and-task-breakdown` | düşünme | A5 | — | 2026-11-05 |
+| `spec-driven-development` | düşünme / geliştirme | A5 | — | 2026-11-05 |
+| `hyperframes` | video | A1 | — | 2026-11-05 |
+| `hyperframes-cli` | video | A1 | — | 2026-11-05 |
+| `hyperframes-registry` | video | A1 | — | 2026-11-05 |
+| `media-use` | video | A1 | — | 2026-11-05 |
+| `style-sampling` | video | A1 | — | 2026-11-05 |
+| `reverse-any-video` | video | A1 | — | 2026-11-05 |
+| `slideshow` | video | A1 | — | 2026-11-05 |
+| `figma` | video | A1 | — | 2026-11-05 |
+| `remotion-to-hyperframes` | video | A1 | — | 2026-11-05 |
+| `scroll-craft` | web | A3 | — | 2026-11-05 |
 
 ## Aday kaynaklar (kurulmamış)
 

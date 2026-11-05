@@ -18,7 +18,7 @@ Kaldığımız yer burası. Her oturumda ilk okunacak dosya bu.
 
 - [ ] HyperFrames render testi: bu oturumda npm deposu kapalıydı. npm erişimi olan bir oturumda ya da kullanıcının bilgisayarında denenecek.
 - [ ] Apify'ı bağlamak (kullanıcı): claude.ai → Ayarlar → Connectors → "Apify" → Connect, Apify hesabıyla giriş. Adımlar `HARITA.md` A2'de.
-- [ ] Tek dosyalık skill'leri claude.ai hesabına kaydetmek (humanizer, planning-and-task-breakdown, spec-driven-development): kayıt kartları kullanıcıya sunuldu. Çok dosyalı olanlar (HyperFrames, ScrollCraft, idea-refine) bu repo bağlı oturumlarda otomatik yükleniyor.
+- [ ] `humanizer`'ı claude.ai hesabına kaydetmek: kayıt kartı kullanıcıya sunuldu (2026-11-05), kullanıcının "Kaydet"e basması gerekiyor. Diğer skill'ler bu repo bağlı oturumlarda otomatik yükleniyor. planning ve spec-driven istenirse hesaba da kart olarak sunulabilir.
 
 ## Kurtarma noktaları
 
@@ -26,7 +26,7 @@ Kaldığımız yer burası. Her oturumda ilk okunacak dosya bu.
 
 | No | Tarih | Değişiklik | Kayıt |
 |---|---|---|---|
-| 1 | 2026-11-05 11:55 | Apify bağlantı adımları eklendi | güncel |
+| 1 | 2026-11-05 11:55 | Apify adımları ve hesap kaydı eklendi | güncel |
 | 2 | 2026-11-05 11:54 | ScrollCraft kuruldu | `a7b064c` |
 | 3 | 2026-11-05 11:54 | HyperFrames video skill'leri kuruldu | `ade32d4` |
 | 4 | 2026-11-05 11:53 | Agent Skills'ten 3 skill kuruldu | `3c3d3e3` |
