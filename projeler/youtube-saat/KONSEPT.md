@@ -26,7 +26,7 @@
 | # | Adım | Durum |
 |---|---|---|
 | 1 | Kanal konsepti | ✅ 2026-11-05 |
-| 2 | Niş analizi: en çok izlenen videolar, rakip kanallar, tutan başlık ve süreler | ⏳ Apify bağlantısı bekleniyor |
+| 2 | Niş analizi: en çok izlenen videolar, rakip kanallar, tutan başlık ve süreler | ✅ 2026-11-05 · `NIS-ANALIZI.md` |
 | 3 | Kanal kimliği: isim, logo, banner, açıklama | — |
 | 4 | İlk video: senaryo → Humanizer → seslendirme → görseller ve kurgu → render | — |
 | 5 | Yayın: başlık, açıklama, kapak görseli, Postiz ile zamanlama | — |
@@ -38,7 +38,7 @@ Apify bağlanmadan önce yapılan kaba bir arama. İzlenme verisi içermiyor.
 - **Erk Koçak:** Türkçe saat içeriğinin bilinen adı. Yüzü görünen, kişisel anlatımlı içerikler: fiyat aralığına göre saat önerileri, saat alışverişi vlogları, kendi ürettirdiği saat. [Örnek özet](https://recapio.com/digest/en-iyi-saat-onerileri-17-farkli-saat-500-altinda-by-erk-kocak)
 - Türkçe saat içeriği web aramasında az görünüyor. Bu, rekabetin düşük olabileceğine işaret ediyor ama kesin sonuç için Apify ile izlenme verisi gerekiyor.
 
-**Test edilecek fikir:** Yüzü görünen inceleme kanallarıyla kafa kafaya gitmek yerine, yüzsüz bir **hikâye ve belgesel** formatı. Marka kuruluş hikayeleri, ikonik modellerin arka planı, saat dünyasının skandalları ve rekorları. Bu format yüzsüz anlatıma ve sonradan İngilizceye çevrilmeye uygun. Niş analizi bu fikri doğrulayacak ya da çürütecek.
+**Test edilecek fikir (niş analiziyle desteklendi, bkz. `NIS-ANALIZI.md`):** Yüzü görünen inceleme kanallarıyla kafa kafaya gitmek yerine, yüzsüz bir **hikâye ve belgesel** formatı. Marka kuruluş hikayeleri, ikonik modellerin arka planı, saat dünyasının skandalları ve rekorları. Bu format yüzsüz anlatıma ve sonradan İngilizceye çevrilmeye uygun. Niş analizi bu fikri doğrulayacak ya da çürütecek.
 
 ## Teknik durum
 
