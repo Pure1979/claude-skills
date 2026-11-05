@@ -10,6 +10,9 @@ Repoda `.claude/skills/<skill>/` altında durur. Bu repo bir oturuma bağlanınc
 | Skill | Kategori | Kaynak | Hesapta | Kurulum |
 |---|---|---|---|---|
 | `humanizer` | içerik | A4 · Türkçe uyarlamalı | bekliyor | 2026-11-05 |
+| `idea-refine` | düşünme | A5 | bekliyor | 2026-11-05 |
+| `planning-and-task-breakdown` | düşünme | A5 | bekliyor | 2026-11-05 |
+| `spec-driven-development` | düşünme / geliştirme | A5 | bekliyor | 2026-11-05 |
 
 ## Aday kaynaklar (kurulmamış)
 
@@ -21,7 +24,7 @@ Tarama tarihi: 2026-11-05. "Sürüm" sütunu, taradığımız commit'i gösterir
 | A2 | [apify/apify-mcp-server](https://github.com/apify/apify-mcp-server) | MCP bağlantısı (skill değil) | MIT | `3577a57` (2026-11-05) | Veri / web | Orta |
 | A3 | [nateherkai/scroll-craft](https://github.com/nateherkai/scroll-craft) | 1 skill (çok dosyalı) | MIT | `75d81f7` (2026-09-30) | Web / landing page | Orta |
 | A4 | [blader/humanizer](https://github.com/blader/humanizer) | 1 skill | MIT | `0ef9fe5` (2026-10-28) | İçerik / yazı | ✅ Kuruldu |
-| A5 | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 25 skill | MIT | `301b02b` (2026-11-01) | Geliştirme + düşünme | Seçerek |
+| A5 | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 25 skill | MIT | `301b02b` (2026-11-01) | Geliştirme + düşünme | ✅ 3'ü kuruldu, 22'si aday |
 | A6 | [sindresorhus/awesome](https://github.com/sindresorhus/awesome) | Link listesi (622 başlık) | CC0 | `bc98e51` (2026-09-02) | Başvuru kaynağı | Düşük |
 
 ### A1 · HyperFrames (HeyGen)
