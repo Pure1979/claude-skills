@@ -12,24 +12,28 @@ Bu repo, Pure1979'un Claude skill seti. Kullanıcı Türkçe konuşur, yanıtlar
 
 Kullanıcının bir proje komutuyla repoda bir şey değiştiğinde:
 
-1. `DURUM.md`'yi güncelle: "Son güncelleme" ve "Etiket" satırları, Özet, Sıradaki adımlar.
-2. "Son 5 değişiklik" tablosunun en üstüne yeni satır ekle. 5'i aşarsa en alttaki satırı sil.
+1. `DURUM.md`'de "Son güncelleme" satırını (tarih ve saat, İstanbul saati), Özet'i ve Sıradaki adımlar'ı güncelle.
+2. **Kurtarma noktaları** tablosunu kaydır. Tablo her zaman tam 5 satırdır: 1 en yeni, 5 en eski.
+   - 5'teki kayıt silinir. 4→5, 3→4, 2→3, 1→2 olarak birer aşağı kayar.
+   - 2'ye inen eski 1 numaranın "Kayıt" sütunundaki "güncel" yazısını, değişiklikten önceki HEAD'in kısa hash'iyle değiştir (`git rev-parse --short HEAD`, commit atmadan önce al).
+   - Yeni 1 numara: tarih + saat (`YYYY-AA-GG SS:DD`), değişikliğin **çok kısa** özeti (birkaç kelime), Kayıt = "güncel".
 3. Gerekirse `HARITA.md`'yi güncelle (kurulan skill'i "Kurulu yetenekler"e taşı vb.).
-4. Tek commit at. Mesajı bir sonraki sıra numarasıyla başlat: `[d-003] Ne değişti`. Sonra `git push origin main` ile gönder. (Git etiketi kullanma, oturum proxy'si etiket gönderimini reddediyor.)
+4. Tek commit at. Mesaj: `Kurtarma noktası: <aynı kısa özet>`. Sonra `git push origin main` ile gönder. Git etiketi kullanma, oturum proxy'si etiket gönderimini reddediyor.
 5. `DURUM.md` ve `HARITA.md`'yi claude.ai projesine ("GitHUB Repo") yükle: proje yolları `claude/DURUM.md` ve `claude/HARITA.md` (Projects → project_write, local_path). Aynı yola yazınca eski kopyanın yerine geçer.
 
-Sadece okuma ya da soru-cevap olan işlerde yeni numara verilmez.
+Sadece okuma ya da soru-cevap olan işlerde kurtarma noktası oluşturulmaz.
 
 ## Geri dönüş
 
-Kullanıcı "d-00X noktasına geri dön" derse:
-- Commit'i bul: `git log --grep '\[d-00X\]' --format=%H -1` (d-001 = `316fa2f`). Sığ klon yetmezse önce `git fetch --depth=1000 origin main`.
-- `git checkout <hash> -- .` çalıştır. O noktada olmayıp sonradan eklenen dosyaları da kaldır.
-- Bunu yeni numaralı yeni bir commit olarak kaydet. Asla `git reset --hard` ya da force-push kullanma.
-- Durum protokolünü uygula. Tabloya "d-00X noktasına geri dönüldü" yaz.
+Kullanıcı "N numaralı noktaya dön" derse:
+- Hash'i `DURUM.md`'deki N numaralı satırın "Kayıt" sütunundan al. 1 numara zaten güncel haldir.
+- Sığ klonda o commit yoksa önce `git fetch --depth=1000 origin main`.
+- `git checkout <hash> -- .` çalıştır. O noktada olmayıp sonradan eklenen dosyaları da kaldır (`git diff --name-only --diff-filter=A <hash> HEAD`).
+- Asla `git reset --hard` ya da force-push kullanma. Geri dönüş yeni bir commit'tir.
+- Durum protokolünü uygula. Yeni 1 numaranın özeti: "N numaralı noktaya (tarih) dönüldü". Geri yüklenen `DURUM.md` eski tabloyu getirir. Tabloyu, dönüşten hemen önceki halinden kaydırarak yeniden kur.
 
 ## Yapı
 
-- `DURUM.md`: son durum ve son 5 değişiklik
+- `DURUM.md`: son durum ve 5 kurtarma noktası
 - `HARITA.md`: kurulu yetenekler ve aday kaynaklar
 - `skills/<kategori>/<skill>/SKILL.md`: kurulan skill'ler. Dışarıdan alınan her skill'in klasörüne kaynağı ve lisansı yazan bir `KAYNAK.md` konur.

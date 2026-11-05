@@ -2,7 +2,7 @@
 
 Kaldığımız yer burası. Her oturumda ilk okunacak dosya bu.
 
-**Son güncelleme:** 2026-11-05 · **Etiket:** `d-002`
+**Son güncelleme:** 2026-11-05 11:35
 
 ## Özet
 
@@ -17,21 +17,24 @@ Kaldığımız yer burası. Her oturumda ilk okunacak dosya bu.
 - [ ] Kurulan skill'leri `skills/<kategori>/` altına yerleştirmek ve Claude hesabına eklemek
 - [ ] Apify'ı istersek claude.ai Connectors'tan bağlamak
 
-## Son 5 değişiklik
+## Kurtarma noktaları
 
-En yenisi en üstte. Her değişiklik, GitHub'daki commit mesajının başına yazılan bir işaretle (`[d-00X]`) kayıtlı. Geri dönmek için aşağıdaki talimata bak.
+1 en yeni, 5 en eski. Her değişiklikte yeni kayıt 1'e girer, diğerleri birer aşağı kayar ve 5'teki en eski kayıt silinir.
 
-| Etiket | Tarih | Ne değişti |
-|---|---|---|
-| `d-002` | 2026-11-05 | Geri dönüş noktaları git etiketi yerine commit mesajındaki `[d-00X]` işaretiyle tutuluyor (GitHub etiket gönderimine izin vermiyor). |
-| `d-001` | 2026-11-05 | (commit `316fa2f`) İlk kurulum: DURUM, HARITA, CLAUDE.md, README. 6 aday repo haritaya işlendi. |
+| No | Tarih | Değişiklik | Kayıt |
+|---|---|---|---|
+| 1 | 2026-11-05 11:35 | Kurtarma noktaları 1–5 düzenine geçildi | güncel |
+| 2 | 2026-11-05 11:30 | Geri dönüş yöntemi düzeltildi | `2c37497` |
+| 3 | 2026-11-05 11:30 | İlk kurulum: durum, harita, 6 aday repo | `316fa2f` |
+| 4 | — | — | — |
+| 5 | — | — | — |
 
 ## Geri dönüş
 
-Bir şey bozulursa Claude'a "**d-00X noktasına geri dön**" demen yeterli. Arka planda şunlar yapılır:
+Bir şey bozulursa Claude'a "**3 numaralı noktaya dön**" gibi demen yeterli:
 
-1. O değişikliğin commit'i bulunur (`git log --grep '\[d-00X\]'`, d-001 için `316fa2f`) ve dosyalar o noktadaki haline geri yüklenir.
-2. Bu, geçmişi silmeden **yeni bir değişiklik** olarak kaydedilir. Böylece istersen geri dönüşü de geri alabilirsin.
-3. Bu dosya güncellenir ve claude.ai projesindeki kopya yenilenir.
+1. O satırdaki kayıt (commit) bulunur ve dosyalar o haline geri yüklenir.
+2. Geçmiş silinmez. Geri dönüş de yeni bir kurtarma noktası olarak 1'e yazılır, böylece istersen geri dönüşü de geri alabilirsin.
+3. Bu dosya ve claude.ai projesindeki kopyası güncellenir.
 
-Burada sadece son 5 değişiklik listelenir. Daha eskiler GitHub'daki commit geçmişinde durmaya devam eder.
+5'ten eski noktalar listeden düşer ama GitHub'daki commit geçmişinde durmaya devam eder.
