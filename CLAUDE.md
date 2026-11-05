@@ -15,16 +15,17 @@ Kullanıcının bir proje komutuyla repoda bir şey değiştiğinde:
 1. `DURUM.md`'yi güncelle: "Son güncelleme" ve "Etiket" satırları, Özet, Sıradaki adımlar.
 2. "Son 5 değişiklik" tablosunun en üstüne yeni satır ekle. 5'i aşarsa en alttaki satırı sil.
 3. Gerekirse `HARITA.md`'yi güncelle (kurulan skill'i "Kurulu yetenekler"e taşı vb.).
-4. Tek commit at, bir sonraki sıra numarasıyla etiketle (`d-001`, `d-002`, ...). Etiketi push'la: `git push origin main --tags`.
+4. Tek commit at. Mesajı bir sonraki sıra numarasıyla başlat: `[d-003] Ne değişti`. Sonra `git push origin main` ile gönder. (Git etiketi kullanma, oturum proxy'si etiket gönderimini reddediyor.)
 5. `DURUM.md` ve `HARITA.md`'yi claude.ai projesine ("GitHUB Repo") aynı adlarla yükle (Projects → project_write, local_path).
 
-Sadece okuma ya da soru-cevap olan işlerde etiket atılmaz.
+Sadece okuma ya da soru-cevap olan işlerde yeni numara verilmez.
 
 ## Geri dönüş
 
 Kullanıcı "d-00X noktasına geri dön" derse:
-- `git checkout d-00X -- .` komutunu çalıştır. O etikette olmayıp sonradan eklenen dosyaları da kaldır.
-- Bunu yeni bir commit ve yeni bir etiket olarak kaydet. Asla `git reset --hard` ya da force-push kullanma.
+- Commit'i bul: `git log --grep '\[d-00X\]' --format=%H -1` (d-001 = `316fa2f`). Sığ klon yetmezse önce `git fetch --depth=1000 origin main`.
+- `git checkout <hash> -- .` çalıştır. O noktada olmayıp sonradan eklenen dosyaları da kaldır.
+- Bunu yeni numaralı yeni bir commit olarak kaydet. Asla `git reset --hard` ya da force-push kullanma.
 - Durum protokolünü uygula. Tabloya "d-00X noktasına geri dönüldü" yaz.
 
 ## Yapı
