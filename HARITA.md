@@ -23,6 +23,7 @@ Repoda `.claude/skills/<skill>/` altında durur. Bu repo bir oturuma bağlanınc
 | `figma` | video | A1 | — | 2026-11-05 |
 | `remotion-to-hyperframes` | video | A1 | — | 2026-11-05 |
 | `scroll-craft` | web | A3 | — | 2026-11-05 |
+| `youtube-otomasyon-ajani` | video / yayın | A7 · kullanım rehberi, uygulama kullanıcının bilgisayarına kurulacak | — | 2026-11-05 |
 
 ## Aday kaynaklar (kurulmamış)
 
@@ -36,6 +37,7 @@ Tarama tarihi: 2026-11-05. "Sürüm" sütunu, taradığımız commit'i gösterir
 | A4 | [blader/humanizer](https://github.com/blader/humanizer) | 1 skill | MIT | `0ef9fe5` (2026-10-28) | İçerik / yazı | ✅ Kuruldu |
 | A5 | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 25 skill | MIT | `301b02b` (2026-11-01) | Geliştirme + düşünme | ✅ 3'ü kuruldu, 22'si aday |
 | A6 | [sindresorhus/awesome](https://github.com/sindresorhus/awesome) | Link listesi (622 başlık) | CC0 | `bc98e51` (2026-09-02) | Başvuru kaynağı | Düşük |
+| A7 | [darkzOGx/youtube-automation-agent](https://github.com/darkzOGx/youtube-automation-agent) | Uygulama (Node.js, kendi bilgisayarında) | MIT | `e973d51` (2026-10-26) | Video / yayın | ✅ Rehber skill kuruldu, uygulama kurulumu kullanıcıda |
 
 ### A1 · HyperFrames (HeyGen)
 HTML'i videoya dönüştürüyor: tanıtım filmleri, açıklayıcı videolar, dikey klipler, altyazı, grafik ve harita animasyonları.
@@ -71,6 +73,14 @@ Yazılım geliştirme yaşam döngüsü için 25 skill. Bunların arasında gene
 
 ### A6 · Awesome
 Konulara göre derlenmiş "awesome" listelerinin ana listesi. Skill değil. Yeni araç ya da kaynak ararken bakılacak yer.
+
+### A7 · YouTube Automation Agent
+Bir YouTube kanalını uçtan uca yöneten, kullanıcının bilgisayarında çalışan uygulama: konu araştırma, senaryo, seslendirme (ElevenLabs / OpenAI / Gemini), görsel (ücretsiz slayt ya da ücretli klip sağlayıcıları), MP4, meta veri, onay, zamanlanmış yükleme, analitikten öğrenme, yorum yönetimi, Shorts çıkarma.
+- **Kurulum şekli:** Skill değil, uygulama. Kod repoya kopyalanmadı. `youtube-otomasyon-ajani` skill'i kurulumu ve bizim kanal ayarlarını anlatıyor. Claude panele yerleşik tarayıcıyla `http://localhost:3456` adresinden ulaşır.
+- **Bağımlılık:** Node.js 18.17+, Google Cloud OAuth (YouTube Data + Analytics API), en az bir metin sağlayıcı anahtarı (Gemini ücretsiz katman olabilir), seslendirme anahtarı.
+- **Güçlü yanı:** onay kapıları (kaynak masası, medya hakkı beyanı, kullanıcı onayı), yükleme ve analitik döngüsü, Shorts çıkarma. Seslendirme seçimi sorununu da çözüyor.
+- **Zayıf yanı:** varsayılan görsel slayt gösterisi. YouTube'un şablon kuralı açısından risk, HyperFrames ile desteklenmeli. Dışarıda üretilen sahnenin içeri alınıp alınamadığı henüz doğrulanmadı.
+- **İnceleme:** telemetri varsayılan kapalı, dış bağlantılar sadece seçilen sağlayıcılar ve Google API'leri, panel sadece yerel adreste dinliyor.
 
 ## Kategoriler
 

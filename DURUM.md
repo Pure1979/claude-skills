@@ -2,7 +2,7 @@
 
 Kaldığımız yer burası. Her oturumda ilk okunacak dosya bu.
 
-**Son güncelleme:** 2026-11-05 12:37
+**Son güncelleme:** 2026-11-05 17:08
 
 ## Özet
 
@@ -14,10 +14,11 @@ Kaldığımız yer burası. Her oturumda ilk okunacak dosya bu.
 - **Kurulum kararı (2026-11-05):** Humanizer, HyperFrames, ScrollCraft, Agent Skills'ten 3 skill (idea-refine, planning-and-task-breakdown, spec-driven-development) ve Apify bağlantısı kurulacak. Awesome sadece başvuru kaynağı.
 - **Bu projenin rolü:** YouTube ve diğer işler için skill geliştirme alanı. YouTube kanalının günlük çalışması 2026-11-05'ten itibaren ayrı bir claude.ai projesinde sürüyor. Devir özeti: `projeler/youtube-saat/YOUTUBE-DEVIR.md`.
 - **YouTube saat kanalı (devredildi)** (`projeler/youtube-saat/KONSEPT.md`). Kararlar: saat nişi, önce Türkçe sonra İngilizce, karma format (uzun + Shorts), yapay zekâ seslendirme, yüzsüz. 1. adım (konsept) ve 2. adım (niş analizi, `NIS-ANALIZI.md`) bitti. Ton: "meraklı anlatıcı", format: mini belgesel. İlk video önerisi: Kuvars Krizi. Sıradaki adım kanal kimliği ve ilk videonun onayı.
-- **Kurulu:** `humanizer` (Türkçe uyarlamalı), `idea-refine`, `planning-and-task-breakdown`, `spec-driven-development`, HyperFrames'in 9 video skill'i, `scroll-craft`.
+- **Kurulu:** `humanizer` (Türkçe uyarlamalı), `idea-refine`, `planning-and-task-breakdown`, `spec-driven-development`, HyperFrames'in 9 video skill'i, `scroll-craft`, `youtube-otomasyon-ajani` (darkzOGx/youtube-automation-agent için kullanım rehberi).
 
 ## Sıradaki adımlar
 
+- [ ] YouTube Automation Agent'ı kullanıcının bilgisayarına kurmak (Node.js, Google Cloud OAuth, metin + ses anahtarı). Adımlar `youtube-otomasyon-ajani` skill'inde. İlk videoda dışarıdan sahne alma özelliği doğrulanacak.
 - [ ] Seslendirme servisi seçimi (4. adımdan önce).
 - [ ] HyperFrames render testi (YouTube projesinin ihtiyacı): bu oturumda npm deposu kapalıydı. npm erişimi olan bir oturumda ya da kullanıcının bilgisayarında denenecek.
 - [ ] Apify'ı bağlamak (kullanıcı, artık acil değil: niş analizi tarayıcıyla yapıldı): claude.ai → Ayarlar → Connectors → "Apify" → Connect, Apify hesabıyla giriş. Adımlar `HARITA.md` A2'de.
@@ -29,11 +30,11 @@ Kaldığımız yer burası. Her oturumda ilk okunacak dosya bu.
 
 | No | Tarih | Değişiklik | Kayıt |
 |---|---|---|---|
-| 1 | 2026-11-05 12:37 | YouTube işi ayrı projeye devredildi | güncel |
-| 2 | 2026-11-05 12:32 | Niş analizi ve örnek video planı | `d6d6909` |
-| 3 | 2026-11-05 12:08 | YouTube saat kanalı konsepti kaydedildi | `9081d74` |
-| 4 | 2026-11-05 11:55 | Apify adımları ve hesap kaydı eklendi | `5aa7665` |
-| 5 | 2026-11-05 11:54 | ScrollCraft kuruldu | `a7b064c` |
+| 1 | 2026-11-05 17:08 | YouTube otomasyon ajanı rehberi eklendi | güncel |
+| 2 | 2026-11-05 12:37 | YouTube işi ayrı projeye devredildi | `a322f5f` |
+| 3 | 2026-11-05 12:32 | Niş analizi ve örnek video planı | `d6d6909` |
+| 4 | 2026-11-05 12:08 | YouTube saat kanalı konsepti kaydedildi | `9081d74` |
+| 5 | 2026-11-05 11:55 | Apify adımları ve hesap kaydı eklendi | `5aa7665` |
 
 ## Geri dönüş
 

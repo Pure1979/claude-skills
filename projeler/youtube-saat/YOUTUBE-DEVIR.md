@@ -1,6 +1,6 @@
 # YouTube Saat Kanalı: Devir Özeti
 
-Son durum: 2026-11-05 12:36. Bu dosya YouTube projesinde kaldığımız yerden devam etmek için hazırlandı. Önceki çalışma "GitHUB Repo" projesinde ve `Pure1979/claude-skills` reposunda yapıldı.
+Son durum: 2026-11-05 17:10. Bu dosya YouTube projesinde kaldığımız yerden devam etmek için hazırlandı. Önceki çalışma "GitHUB Repo" projesinde ve `Pure1979/claude-skills` reposunda yapıldı.
 
 ## Nerede kaldık?
 
@@ -79,13 +79,15 @@ Kullanıcının verdiği diğer referans kanallar (henüz taranmadı): Chisholm 
 - **Video skill'leri** `Pure1979/claude-skills` reposunda: HyperFrames (9 skill: video üretimi, altyazı, stil kopyalama, video yeniden kurma), Humanizer (Türkçe uyarlamalı), ScrollCraft, idea-refine, planning-and-task-breakdown, spec-driven-development. **YouTube projesindeki bir oturumda bu skill'leri kullanmak için o oturuma `Pure1979/claude-skills` reposunu bağlamak gerekiyor.** Humanizer ayrıca hesaba kaydedilebilir (kayıt kartı sunulmuştu).
 - **Render:** HyperFrames CLI henüz test edilemedi, çünkü önceki oturumlarda npm/pip paket depoları kapalıydı. Yedek plan: Chromium + Playwright + ffmpeg ile HTML animasyonları kare kare render etmek. Seslendirme dışarıdan bir servisle yapılacak.
 - **Veri toplama:** YouTube verileri masaüstü uygulamasının tarayıcısıyla çekildi (youtube.com için izin verildi). Apify bağlanmadı; şu an acil değil.
+- **YouTube Automation Agent (2026-11-05'te eklendi):** Kanalı uçtan uca yöneten, kullanıcının bilgisayarında çalışan açık kaynak uygulama ([darkzOGx/youtube-automation-agent](https://github.com/darkzOGx/youtube-automation-agent)). Senaryo, seslendirme, MP4, onay, zamanlanmış yükleme, analitik ve Shorts çıkarmayı yapıyor. Kurulumu ve bizim kanal ayarları `youtube-otomasyon-ajani` skill'inde. Rolü: YouTube'a yükleme, zamanlama, analitik ve yorumlar. Görseller HyperFrames ile desteklenecek, çünkü varsayılan slayt görünümü şablon kuralı açısından risk.
 - **Hesapta açık araçlar:** Buzzfy (Instagram analizi ve paylaşım), Postiz (YouTube dahil 28 kanala zamanlı paylaşım).
 
 ## Açık işler
 
 - [ ] Kanal kimliği: isim önerileri, logo, banner, açıklama
 - [ ] İlk video konusunun onayı (öneri: Kuvars Krizi)
-- [ ] Seslendirme servisi seçimi
+- [ ] YouTube Automation Agent'ı bilgisayara kurmak (Node.js, Google Cloud OAuth, metin + ses anahtarı)
+- [ ] Seslendirme servisi seçimi (ajanın desteklediği ElevenLabs / OpenAI / Gemini TTS arasından, Türkçe ses testiyle)
 - [ ] HyperFrames render testi (npm erişimi olan bir oturumda ya da kullanıcının bilgisayarında)
 - [ ] Gerekirse kalan referans kanalların taranması
 
