@@ -16,7 +16,7 @@ Kullanıcının bir proje komutuyla repoda bir şey değiştiğinde:
 2. "Son 5 değişiklik" tablosunun en üstüne yeni satır ekle. 5'i aşarsa en alttaki satırı sil.
 3. Gerekirse `HARITA.md`'yi güncelle (kurulan skill'i "Kurulu yetenekler"e taşı vb.).
 4. Tek commit at. Mesajı bir sonraki sıra numarasıyla başlat: `[d-003] Ne değişti`. Sonra `git push origin main` ile gönder. (Git etiketi kullanma, oturum proxy'si etiket gönderimini reddediyor.)
-5. `DURUM.md` ve `HARITA.md`'yi claude.ai projesine ("GitHUB Repo") aynı adlarla yükle (Projects → project_write, local_path).
+5. `DURUM.md` ve `HARITA.md`'yi claude.ai projesine ("GitHUB Repo") yükle: proje yolları `claude/DURUM.md` ve `claude/HARITA.md` (Projects → project_write, local_path). Aynı yola yazınca eski kopyanın yerine geçer.
 
 Sadece okuma ya da soru-cevap olan işlerde yeni numara verilmez.
 
