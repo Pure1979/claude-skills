@@ -31,7 +31,7 @@ Tarama tarihi: 2026-11-05. "Sürüm" sütunu, taradığımız commit'i gösterir
 | # | Kaynak | Tür | Lisans | Sürüm | Kategori | Öncelik |
 |---|---|---|---|---|---|---|
 | A1 | [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) | 9 skill + ~450 hazır blok | Apache 2.0 | `7bebcb9` (2026-11-05) | Video | ✅ 9 skill kuruldu, render testi bekliyor |
-| A2 | [apify/apify-mcp-server](https://github.com/apify/apify-mcp-server) | MCP bağlantısı (skill değil) | MIT | `3577a57` (2026-11-05) | Veri / web | Orta |
+| A2 | [apify/apify-mcp-server](https://github.com/apify/apify-mcp-server) | MCP bağlantısı (skill değil) | MIT | `3577a57` (2026-11-05) | Veri / web | ⏳ Kullanıcı bağlayacak |
 | A3 | [nateherkai/scroll-craft](https://github.com/nateherkai/scroll-craft) | 1 skill (çok dosyalı) | MIT | `75d81f7` (2026-09-30) | Web / landing page | ✅ Kuruldu |
 | A4 | [blader/humanizer](https://github.com/blader/humanizer) | 1 skill | MIT | `0ef9fe5` (2026-10-28) | İçerik / yazı | ✅ Kuruldu |
 | A5 | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 25 skill | MIT | `301b02b` (2026-11-01) | Geliştirme + düşünme | ✅ 3'ü kuruldu, 22'si aday |
@@ -47,7 +47,8 @@ HTML'i videoya dönüştürüyor: tanıtım filmleri, açıklayıcı videolar, d
 
 ### A2 · Apify MCP
 Web'den veri çekme, arama ve tarayıcı otomasyonu için binlerce hazır "Actor"a tek bağlantıdan erişim sağlıyor (Instagram, Google Maps, e-ticaret, SERP).
-- **Kurulum şekli:** Skill olarak değil, claude.ai → Ayarlar → Connectors'tan özel bağlantı olarak eklenir: `https://mcp.apify.com` (OAuth).
+- **Kurulum şekli:** Skill olarak değil, bağlantı olarak kurulur. claude.ai → Ayarlar → Connectors → dizinde "Apify"yi bul → Connect. Dizinde yoksa "Add custom connector" → ad: `Apify`, URL: `https://mcp.apify.com`. Apify hesabıyla giriş yapılır. Aynı bağlantı claude.ai'de ve masaüstü uygulamasında çalışır.
+- **İleride bakılacak:** Apify'ın ayrıca kendi "agent skills" eklentisi var (`apify/apify-claude-code-plugin`). Bağlantı kurulduktan sonra ihtiyaç olursa değerlendirilir.
 - **Bağımlılık:** Apify hesabı. Actor'lar kullanım başına ücretli olabilir.
 - **Repodaki skill'ler** (`dig`, `bug-triage`, `creating-mcp-agent-evals`) sadece bu reponun geliştiricileri için. Bize gerekmiyor.
 
