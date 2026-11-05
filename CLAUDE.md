@@ -36,4 +36,4 @@ Kullanıcı "N numaralı noktaya dön" derse:
 
 - `DURUM.md`: son durum ve 5 kurtarma noktası
 - `HARITA.md`: kurulu yetenekler ve aday kaynaklar
-- `skills/<kategori>/<skill>/SKILL.md`: kurulan skill'ler. Dışarıdan alınan her skill'in klasörüne kaynağı ve lisansı yazan bir `KAYNAK.md` konur.
+- `.claude/skills/<skill>/SKILL.md`: kurulan skill'ler. Claude bu klasörü otomatik yüklediği için alt kategori klasörü açılmaz. Kategori `HARITA.md`'deki tabloda tutulur. Dışarıdan alınan her skill'in klasörüne kaynağı, lisansı ve yaptığımız değişiklikleri yazan bir `KAYNAK.md` konur, orijinal `LICENSE` korunur.

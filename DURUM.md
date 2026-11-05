@@ -2,20 +2,25 @@
 
 Kaldığımız yer burası. Her oturumda ilk okunacak dosya bu.
 
-**Son güncelleme:** 2026-11-05 11:35
+**Son güncelleme:** 2026-11-05 11:53
 
 ## Özet
 
 - Repo kuruldu: `Pure1979/claude-skills`. GitHub bağlantısı çalışıyor.
 - Yapı hazır: durum dosyası (bu dosya), yetenek haritası (`HARITA.md`) ve çalışma kuralları (`CLAUDE.md`).
-- 6 kaynak repo tarandı ve `HARITA.md`'ye **aday (kurulmamış)** olarak işlendi: HyperFrames, Apify MCP, ScrollCraft, Humanizer, Agent Skills, Awesome.
-- Henüz hiçbir skill kurulmadı.
+- 6 kaynak repo tarandı ve `HARITA.md`'ye işlendi: HyperFrames, Apify MCP, ScrollCraft, Humanizer, Agent Skills, Awesome.
+- **Hedef:** web otomasyonuyla gelir. Ayaklar: yapay zekâ destekli YouTube kanalı, saat nişi, dropshipping, rakip ve en çok izlenen video analizi, web sitesi, Instagram büyütme. Instagram için Buzzfy, zamanlı paylaşım için Postiz zaten açık.
+- **YouTube kuralı (16.07.2026):** Şablonla seri üretilmiş, birbirine benzeyen yapay zekâ videoları ve finans/sağlık anlatan yapay zekâ personaları para kazanamıyor. Her video özgün değer katmalı.
+- **Kurulum kararı (2026-11-05):** Humanizer, HyperFrames, ScrollCraft, Agent Skills'ten 3 skill (idea-refine, planning-and-task-breakdown, spec-driven-development) ve Apify bağlantısı kurulacak. Awesome sadece başvuru kaynağı.
+- **Kurulu:** `humanizer` (Türkçe uyarlamalı).
 
 ## Sıradaki adımlar
 
-- [ ] Hangi adayların kurulacağına karar vermek (öneri: önce Humanizer, sonra idea-refine ve interview-me)
-- [ ] Kurulan skill'leri `skills/<kategori>/` altına yerleştirmek ve Claude hesabına eklemek
-- [ ] Apify'ı istersek claude.ai Connectors'tan bağlamak
+- [ ] Agent Skills'ten 3 skill'i kurmak
+- [ ] HyperFrames'i kurmak ve render'ı test etmek
+- [ ] ScrollCraft'ı kurmak
+- [ ] Apify hesabı açıp claude.ai Connectors'tan bağlamak (kullanıcı)
+- [ ] Skill'leri claude.ai hesabına da kaydetmek
 
 ## Kurtarma noktaları
 
@@ -23,10 +28,10 @@ Kaldığımız yer burası. Her oturumda ilk okunacak dosya bu.
 
 | No | Tarih | Değişiklik | Kayıt |
 |---|---|---|---|
-| 1 | 2026-11-05 11:35 | Kurtarma noktaları 1–5 düzenine geçildi | güncel |
-| 2 | 2026-11-05 11:30 | Geri dönüş yöntemi düzeltildi | `2c37497` |
-| 3 | 2026-11-05 11:30 | İlk kurulum: durum, harita, 6 aday repo | `316fa2f` |
-| 4 | — | — | — |
+| 1 | 2026-11-05 11:53 | Humanizer kuruldu (Türkçe uyarlamalı) | güncel |
+| 2 | 2026-11-05 11:35 | Kurtarma noktaları 1–5 düzenine geçildi | `91505b8` |
+| 3 | 2026-11-05 11:30 | Geri dönüş yöntemi düzeltildi | `2c37497` |
+| 4 | 2026-11-05 11:30 | İlk kurulum: durum, harita, 6 aday repo | `316fa2f` |
 | 5 | — | — | — |
 
 ## Geri dönüş

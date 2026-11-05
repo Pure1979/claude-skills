@@ -5,10 +5,11 @@ Adayların içeriği bir kez tarandı ve özeti aşağıda. Yeniden taramaya ger
 
 ## Kurulu yetenekler
 
-_Henüz kurulu skill yok._
+Repoda `.claude/skills/<skill>/` altında durur. Bu repo bir oturuma bağlanınca Claude bunları otomatik yükler. "Hesapta" sütunu, skill'in claude.ai hesabına da kaydedilip kaydedilmediğini gösterir.
 
-| Skill | Kategori | Kaynak | Nereye kurulu | Tarih |
+| Skill | Kategori | Kaynak | Hesapta | Kurulum |
 |---|---|---|---|---|
+| `humanizer` | içerik | A4 · Türkçe uyarlamalı | bekliyor | 2026-11-05 |
 
 ## Aday kaynaklar (kurulmamış)
 
@@ -19,7 +20,7 @@ Tarama tarihi: 2026-11-05. "Sürüm" sütunu, taradığımız commit'i gösterir
 | A1 | [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) | 9 skill + ~450 hazır blok | Apache 2.0 | `7bebcb9` (2026-11-05) | Video | Orta |
 | A2 | [apify/apify-mcp-server](https://github.com/apify/apify-mcp-server) | MCP bağlantısı (skill değil) | MIT | `3577a57` (2026-11-05) | Veri / web | Orta |
 | A3 | [nateherkai/scroll-craft](https://github.com/nateherkai/scroll-craft) | 1 skill (çok dosyalı) | MIT | `75d81f7` (2026-09-30) | Web / landing page | Orta |
-| A4 | [blader/humanizer](https://github.com/blader/humanizer) | 1 skill | MIT | `0ef9fe5` (2026-10-28) | İçerik / yazı | Yüksek |
+| A4 | [blader/humanizer](https://github.com/blader/humanizer) | 1 skill | MIT | `0ef9fe5` (2026-10-28) | İçerik / yazı | ✅ Kuruldu |
 | A5 | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 25 skill | MIT | `301b02b` (2026-11-01) | Geliştirme + düşünme | Seçerek |
 | A6 | [sindresorhus/awesome](https://github.com/sindresorhus/awesome) | Link listesi (622 başlık) | CC0 | `bc98e51` (2026-09-02) | Başvuru kaynağı | Düşük |
 
@@ -56,16 +57,14 @@ Yazılım geliştirme yaşam döngüsü için 25 skill. Bunların arasında gene
 ### A6 · Awesome
 Konulara göre derlenmiş "awesome" listelerinin ana listesi. Skill değil. Yeni araç ya da kaynak ararken bakılacak yer.
 
-## Kategori iskeleti
+## Kategoriler
 
-Skill'ler kurulduğunda repoda şu klasörlere yerleşecek:
+Claude skill'leri tek seviyeli bir klasörden (`.claude/skills/<skill>/`) yüklediği için kategoriler klasörle değil, yukarıdaki tablodaki "Kategori" sütunuyla tutulur:
 
-```
-skills/
-  icerik/       # yazı, metin düzeltme (ör. humanizer)
-  video/        # video üretimi (ör. hyperframes)
-  web/          # landing page, site (ör. scroll-craft)
-  dusunme/      # fikir, planlama (ör. idea-refine, interview-me)
-  gelistirme/   # yazılım geliştirme (agent-skills)
-```
-Bağlantılar (MCP) skill değildir. Kurulduklarında yukarıdaki "Kurulu yetenekler" tablosuna "bağlantı" olarak eklenir.
+- **içerik:** yazı, metin düzeltme
+- **video:** video üretimi
+- **web:** landing page, site
+- **düşünme:** fikir, planlama, tasarım
+- **geliştirme:** yazılım geliştirme
+
+Bağlantılar (MCP) skill değildir. Kurulduklarında "Kurulu yetenekler" tablosuna "bağlantı" olarak eklenir.
